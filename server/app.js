@@ -74,10 +74,10 @@ app.delete("/countries/:id", (req, res) => {
     
     data.splice(reqId - 1, 1);
     
-    res.status(204).json({
+    res.json({
         success: true,
         removed: {...entry}
-    });
+    }).status(204);
 })
 
 app.put("/countries/:id", (req, res) => {
@@ -88,10 +88,10 @@ app.put("/countries/:id", (req, res) => {
             item["avg_temp"] = req.body.avg_temp
             item["currency"] = req.body.currency
             item["isEu"] = req.body.isEu
-            res.status(204).json({
+            res.json({
                 success: "You successfully changed the entry",
                 entry: item
-            })
+            }).status(204)
         }
 
     });

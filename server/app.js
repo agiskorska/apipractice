@@ -89,7 +89,7 @@ app.put("/countries/:id", (req, res) => {
             item["currency"] = req.body.currency
             item["isEu"] = req.body.isEu
             res.status(204).json({
-                success: "You successfuly changed the entry",
+                success: "You successfully changed the entry",
                 entry: item
             })
         }

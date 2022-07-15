@@ -80,5 +80,23 @@ app.delete("/countries/:id", (req, res) => {
     });
 })
 
+app.put("/countries/:id", (req, res) => {
+    const reqId = req.params.id;
+    data.filter(item => {
+        if (item.id == reqId) {
+            item["name"] = req.body.name
+            item["avg_temp"] = req.body.avg_temp
+            item["currency"] = req.body.currency
+            item["isEu"] = req.body.isEu
+            res.status(204).json({
+                success: "You successfuly changed the entry",
+                entry: item
+            })
+        }
+
+    });
+
+
+})
 
 module.exports = app;    
